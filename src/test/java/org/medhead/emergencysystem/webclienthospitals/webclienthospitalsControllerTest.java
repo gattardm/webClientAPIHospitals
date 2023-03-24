@@ -26,7 +26,7 @@ public class webclienthospitalsControllerTest {
         mockMvc.perform(get("/"))
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(view().name("home"))
+                .andExpect(view().name("homeHospitals"))
                 .andExpect(content().string(containsString("Hospital")));
     }
 }
