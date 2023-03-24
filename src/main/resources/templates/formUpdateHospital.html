@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+          crossorigin="anonymous">
+    <title>Hospital Web Application</title>
+
+    <style>
+        body { padding-top: 50px; }
+        .special { padding-top: 50px; }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href=".">Système de gestion des hopitaux</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container special">
+        <h2 class="h2">Modification d'un hopital</h2>
+        <div>
+            <form method="post"
+                  th:action="@{/saveHospital}" th:object="${hospital}">
+                <div class="form-group">
+                    <input type="hidden" th:field="*{id}" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="nameInput">Nom</label>
+                    <input type="text" th:field="*{name}" class="form-control" id="nameInput"
+                            aria-describedby="nameHelp" placeholder="Saisir le nom de l'hopital"> <small
+                        id="nameHelp" class="form-text text-muted">Merci d'écrire le nom de l'hopital.</small>
+                </div>
+                <div class="form-group">
+                    <label for="longitudeInput">Longitude</label>
+                    <input
+                            type="text" th:field="*{longitude}" class="form-control" id="longitudeInput"
+                            aria-describedby="longitudeHelp" placeholder="Saisir la longitude de l'hopital"> <small
+                        id="longitudeHelp" class="form-text text-muted">Merci d'écrire la longitude de l'hopital'.</small>
+                </div>
+                <div class="form-group">
+                    <label for="latitudeInput">Latitude</label>
+                    <input
+                            type="text" th:field="*{latitude}" class="form-control" id="latitudeInput"
+                            aria-describedby="latitudeHelp" placeholder="Saisir la latitude de l'hopital"> <small
+                        id="latitudeHelp" class="form-text text-muted">Merci d'écrire la latitude de l'hopital'.</small>
+                </div>
+                <div class="form-group">
+                    <label for="bedsQuantityInput">NombreLits</label>
+                    <input
+                            type="text" th:field="*{bedsQuantity}" class="form-control" id="bedsQuantityInput"
+                            aria-describedby="bedsQuantityHelp" placeholder="Saisir le nombre de lits de l'hopital"> <small
+                        id="bedsQuantityHelp" class="form-text text-muted">Merci d'écrire le nombre de lits de l'hopital'.</small>
+                </div>
+                <div class="form-group">
+                    <label for="bedsAvailableInput">NombreLitsDisponibles</label>
+                    <input
+                            type="text" th:field="*{bedsAvailable}" class="form-control" id="bedsAvailableInput"
+                            aria-describedby="bedsAvailableHelp" placeholder="Saisir le nombre de lits disponibles de l'hopital"> <small
+                        id="bedsAvailableHelp" class="form-text text-muted">Merci d'écrire le nombre de lits disponibles de l'hopital'.</small>
+                </div>
+                <div class="form-group">
+                    <label for="specialityInput">Speciality</label>
+                    <input
+                            type="text" th:field="*{speciality}" class="form-control" id="specialityInput"
+                            aria-describedby="specialityHelp" placeholder="Saisir la spécialité de l'hopital"> <small
+                        id="specialityHelp" class="form-text text-muted">Merci d'écrire la spécialité de l'hopital'.</small>
+                </div>
+                <button type="submit" class="btn btn-primary">Modifier</button>
+            </form>
+        </div>
+
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+</html>
